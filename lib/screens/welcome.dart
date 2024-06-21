@@ -58,10 +58,10 @@ class Welcome extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    // Navigate to Signup Screen
+                    Navigator.pushNamed(context, '/signup');
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueAccent,  // Define the color of the button
+                    backgroundColor: Colors.blue,  // Define the color of the button
                   ),
                   child: const Text('Signup'),
                 ),
