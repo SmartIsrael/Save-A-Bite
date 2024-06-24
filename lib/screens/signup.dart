@@ -118,23 +118,36 @@ class _signupState extends State<signup> {
               ElevatedButton(
                 onPressed: () {
                   // Handle sign up based on selected type
+                  Navigator.pushNamed(context, '/home');
                   String userType = userTypeIndex == 0 ? 'Consumer' : 'Business';
                   print('User type selected: $userType');
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFFFDA201),  // Define the color of the button
+                  minimumSize: Size(300, 40),  // Increase the width and height of the button
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10), // Reduce the curviness
+                  ),
                 ),
                 child: const Text(
                   'Sign up',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
-              const SizedBox(height: 20),
-              TextButton(
-                onPressed: () {
-                  // Handle forgot password
-                },
-                child: const Text('Forgot password?'),
+              const SizedBox(height: 10), // Adjust the spacing as needed
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      // Handle forgot password
+                    },
+                    child: const Text(
+                      'Already have an account? Log in',
+                      style: TextStyle(color: Color(0xFFFDA201)),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Welcome extends StatelessWidget {
-  const Welcome({super.key});
+class welcome extends StatelessWidget {
+  const welcome({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,27 +49,43 @@ class Welcome extends StatelessWidget {
               children: <Widget>[
                 ElevatedButton(
                   onPressed: () {
-                    // Navigate to Login Screen
+                    Navigator.pushNamed(context, '/login');
+                    int userTypeIndex = 0;
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,  // Define the color of the button
+                    backgroundColor: Color(0xFFF3E9E7),  // Define the color of the button
+                    minimumSize: Size(100, 40),  // Increase the width and height of the button
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10), // Reduce the curviness
+                    ),
                   ),
-                  child: const Text('Login'),
+                  child: const Text(
+                    'Log in',
+                    style: TextStyle(color: Color(0xFF000000)),
+                  ),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/signup');
+                    int userTypeIndex = 0;
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,  // Define the color of the button
+                    backgroundColor: Color(0xFFFDA201),  // Define the color of the button
+                    minimumSize: Size(100, 40),  // Increase the width and height of the button
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10), // Reduce the curviness
+                    ),
                   ),
-                  child: const Text('Signup'),
+                  child: const Text(
+                    'Sign up',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
-              ],
-            ),
           ],
         ),
-      ),
+      ],
+    ),
+    ),
     );
   }
 }
