@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'stores.dart';  // Import the StoresPage
+import 'restaurant.dart';
 
 class homepage extends StatelessWidget {
   const homepage({Key? key}) : super(key: key);
@@ -38,7 +39,10 @@ class homepage extends StatelessWidget {
             CircleButton(
               label: 'Restaurant',
               onTap: () {
-                // Handle restaurant button tap
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const restaurantpage()),
+                );
               },
             ),
             const SizedBox(height: 20), // Spacing between buttons

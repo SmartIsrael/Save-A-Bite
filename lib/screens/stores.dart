@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'aisle.dart';
 
 class storespage extends StatefulWidget {
   const storespage({Key? key}) : super(key: key);
@@ -101,6 +102,7 @@ class _storespageState extends State<storespage> {
           children: <Widget>[
             IconButton(
               onPressed: () {
+                Navigator.pop(context);
                 // Navigate to Home
               },
               icon: const Icon(Icons.home),
@@ -162,6 +164,10 @@ class StoreItem extends StatelessWidget {
                   ),
                   child: TextButton(
                     onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const aislepage()),
+                      );
                       // Handle enter store
                     },
                     child: const Text(
@@ -179,7 +185,7 @@ class StoreItem extends StatelessWidget {
             height: 180,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/welcome_image.jpg'), // Replace with actual image asset
+                image: AssetImage('assets/walmart.jpg'), // Replace with actual image asset
                 fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(10),
