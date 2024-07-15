@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'aisle.dart';
+import 'cart.dart';
+import 'aisle_detail.dart';
 
 class storespage extends StatefulWidget {
   const storespage({Key? key}) : super(key: key);
@@ -7,6 +9,8 @@ class storespage extends StatefulWidget {
   @override
   _storespageState createState() => _storespageState();
 }
+
+
 
 class _storespageState extends State<storespage> {
   bool isHighestDiscount = true; // Default sort by highest discount
@@ -102,7 +106,7 @@ class _storespageState extends State<storespage> {
           children: <Widget>[
             IconButton(
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, '/home');
                 // Navigate to Home
               },
               icon: const Icon(Icons.home),
@@ -111,6 +115,7 @@ class _storespageState extends State<storespage> {
             const SizedBox(width: 80), // Added space between icons
             IconButton(
               onPressed: () {
+                Navigator.pushNamed(context, '/cart');
                 // Navigate to Cart
               },
               icon: const Icon(Icons.shopping_cart),

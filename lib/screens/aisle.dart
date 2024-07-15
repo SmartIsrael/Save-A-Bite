@@ -1,33 +1,34 @@
 import 'package:flutter/material.dart';
+import 'aisle_detail.dart';
 
 class aislepage extends StatefulWidget {
   const aislepage({Key? key}) : super(key: key);
 
   @override
-  _aislepageState createState() => _aislepageState(); // Corrected state class reference
+  _aislepageState createState() => _aislepageState();
 }
 
-class _aislepageState extends State<aislepage> { // Corrected state class name
+class _aislepageState extends State<aislepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pick a shopping aisle'),
+        title: const Text('Pick a shopping aisle'),
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             const Text(
-              '',
+              'Search shopping aisle',
               style: TextStyle(fontSize: 16),
             ),
-            const SizedBox(height: 4),
-            TextField(
+            const SizedBox(height: 8),
+            const TextField(
               decoration: InputDecoration(
-                hintText: 'Search shopping aisle',
+                hintText: 'Search...',
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(),
               ),
@@ -40,45 +41,52 @@ class _aislepageState extends State<aislepage> { // Corrected state class name
                   return AisleItemCard(
                     aisle: aisleItems[index],
                     onTap: () {
-                      // Handle aisle item tap
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => aisledetailpage(
+                            aisleName: aisleItems[index].name,
+                            aisleImagePath: aisleItems[index].imagePath,
+                          ),
+                        ),
+                      );
                     },
                   );
                 },
               ),
             ),
           ],
+        ),
       ),
-    ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(4.0), // Added padding for spacing
+        padding: const EdgeInsets.all(8.0), // Added padding for spacing
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          // Spread out icons evenly
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Spread out icons evenly
           children: <Widget>[
             IconButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/home');
-// Navigate to Home
+                // Navigate to Home
               },
-              icon: const Icon(Icons.home_outlined),
+              icon: const Icon(Icons.home),
               iconSize: 40,
             ),
             const SizedBox(width: 80), // Added space between icons
             IconButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/stores');
-// Navigate to Stores
+                // Navigate to Stores
               },
-              icon: const Icon(Icons.shopping_cart_outlined),
+              icon: const Icon(Icons.shopping_cart),
               iconSize: 40,
             ),
             const SizedBox(width: 80), // Added space between icons
             IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/restaurant');
-// Navigate to Restaurant
+                Navigator.pushNamed(context, '/profile');
+                // Navigate to Profile
               },
-              icon: const Icon(Icons.person_outline_rounded),
+              icon: const Icon(Icons.person),
               iconSize: 40,
             ),
           ],
@@ -121,13 +129,13 @@ class AisleItemCard extends StatelessWidget {
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
-          side: BorderSide(color: Colors.orange, width: 2),
+          side: const BorderSide(color: Colors.orange, width: 2),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             ClipRRect(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
               child: Stack(
                 alignment: Alignment.bottomCenter,
                 children: <Widget>[
@@ -143,7 +151,7 @@ class AisleItemCard extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                     child: Text(
                       aisle.name,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
