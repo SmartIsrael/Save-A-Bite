@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "112751518072",
+    "project_id": "save-a-bite-249f9",
+    "storage_bucket": "save-a-bite-249f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112751518072:android:74da5fb2531cbb057aa88d",
+        "android_client_info": {
+          "package_name": "com.example.save_a_bite"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwceVWx4e4iiprWij2RDi1YC5IS9CGV6s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
